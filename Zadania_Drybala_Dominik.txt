@@ -1,0 +1,277 @@
+Zadania czêœæ pierwsza:
+
+zad 1 - 2
+
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char* argv[]) 
+{
+	int a=1, b, suma=0,sumasek=0,sumawhile=0,sumado=0;
+	cout<<"Program obliczy sume kolejnych liczb naturalnych od poz. 1 do pozycji ktora podasz\n"<<"Podaj do ktorej liczby chcesz sumowac ciag:";
+	cin>>b;
+	for(int i=1;i<=b;i++)
+	{
+		suma=suma+i;
+	}
+	sumasek=(b*(b+1))/2;
+	cout<<"\nProgram obliczy to na dwa sposoby: iteracyjny i sekwencyjny:";
+	cout<<"\nSposob pierwszy iteracyjny: Suma kolejnych liczb naturalnych od 1 do "<<b<<" wynosi: "<<suma;
+	cout<<"\nSposob pierwszy sekwencyjny(za pomoca wzoru (n(n+1))/2): Suma kolejnych liczb naturalnych od 1 do "<<b<<" wynosi: "<<sumasek;
+	
+	cout<<"\nTo samo za pomoca While: ";
+	int i=1;
+	while (i<b+1)
+	{
+		sumawhile=sumawhile+i;
+		i++;
+	}
+	
+	cout<<"\nSuma podanych liczb obliczona przez petle while wynosi: "<<sumawhile;
+	
+	cout<<"\nTo samo za pomoca do-While: ";
+	i=1;
+	do
+	{
+		sumado=sumado+i;
+		i++;
+	}
+	while(i<=b);
+	cout<<"\nSuma podanych liczb obliczona przez petle do-while wynosi: "<<sumado;
+	
+	return 0;
+}
+
+================================================================================
+
+zad 3
+
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+
+
+{
+	char pyt;
+	do
+	{
+		int a,b,suma=0,buf=0;
+		double arytm=0;
+		cout<<"program obliczy sume kwadratow kolejnych liczb z przedzialu ktory podasz. Poda takze ich srednia arytmetyczna\n";
+		cout<<"podaj liczbe od ktorej chcesz rozpoczac zliczanie sumy kwadratow: ";
+		cin>>a;
+		cout<<"\nPodaj liczbe na której chcesz zakonczyc obliczenia: ";
+		cin>>b;
+		if (a>b)
+		{
+			buf=a;
+			a=b;
+			b=buf;
+		}
+		for (int i=a;i<=b;i++)
+		{
+			suma=suma+i*i;
+			arytm=arytm+i;
+		}
+		arytm=arytm/(b-a+1);
+		cout<<"\nSuma kwadratów kolejnych liczb naturalnych z podanego przedzia³u wynosi: "<<suma;
+		cout<<"\nSerdnia arytmetyczna podanego przez Ciebie przedzialu wynosi: "<<arytm;
+		cout<<"\nCzy potworzyc program? T/N: ";
+		cin>>pyt;
+	}
+	while (pyt == 'T' || pyt == 't');
+	return 0;
+}
+
+
+
+
+=================================
+
+Czêœæ druga:
+
+zad 1:
+
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+{
+	char pyt;
+	cout<<"Program sprawdzi czy podana przez Ciebie liczba jest dodatnia, ujemna, lub rowna zeru i informuje o tym\n";
+	int a;
+	do
+	{
+		cout<<"Podaj liczbe, ktora chcesz sprawdzic: ";
+		cin>>a;
+		if(a>0)
+		{
+			cout<<"liczba jest dodatnia";
+		}
+		else if (a==0)
+		{
+			cout<<"Liczba jest rowna zeru";
+		}
+		else
+		{
+			cout<<"Liczba jest ujemna";
+		}
+		cout<<"\nCzy chcesz ponownie uruchomic program? T/N: ";
+		cin>>pyt;
+	}
+	while (pyt=='T' || pyt=='t');
+	return 0;
+}
+
+
+=======================================
+
+zad 2 - 3
+
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+{
+	char pyt;
+	int sg,lg,ng,pp,wyplata,roczna,podatek;
+	cout<<"Program obliczy wyplate pracownika, uwgledniajac ilosc godzin i stawke za nie";
+	do
+	{
+		cout<<"\nPodaj stawke godzinowa pracownika: ";
+		cin>>sg;
+		cout<<"\nPodaj ilosc przepracowanych godzin: ";
+		cin>>lg;
+		if (lg>42)
+		{
+			ng=lg-42;
+			pp=42*sg;
+			wyplata=pp+(ng*2*sg);
+			cout<<"Pracownik otrzymal: "<<pp<<" oraz wyrobil "<<ng<<"nadgodzin. Pelne wynagrodzenie wynosi "<<wyplata;
+		}
+		else
+		{
+			pp=lg*sg;
+			wyplata=pp;
+			cout<<"\nWyplata tego pracownika wynosi: "<<wyplata;
+		}
+		cout<<"obliczymy rowniez wynagrodzenie roczne, oraz podatek jaki pracownik bedzie musial odprowadzic";
+		roczna=wyplata*12;
+		if (roczna<20000)
+		{
+			podatek=roczna*0.19;
+
+		}
+		else if (roczna<30000)
+		{
+			podatek=roczna*0.21;
+		}
+		else
+		{
+			podatek=roczna*0.28;
+		}
+		cout<<"\nPracownik w przeciagu roku zarobi: "<<roczna<<"W skali roku podatek wyniosl: "<<podatek<<"W ciagu roku pracownik na reke otrzymal: "<<roczna-podatek;
+		cout<<"\nCzy potworzyc program? T/N: ";
+		cin>>pyt;
+	}
+	while (pyt == 'T' || pyt == 't');
+	return 0;
+}
+
+
+
+===========================================
+
+zad 4
+
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+
+
+int main(int argc, char** argv) 
+
+{
+
+	char pyt;
+	cout<<"Program obliczy silnie liczby ktora podasz.";
+	unsigned long long a,i,n;
+	do
+	{
+		n=1;
+		cout<<"Podaj liczbe od ktorej chcesz obliczyc silnie: n= ";
+		cin>>a;
+		if (a>0)
+		{
+			for (i=1;i<=a;i++)
+			{
+				n=n*i;
+			}
+		}
+		cout<<"\n\nSilnia "<<a<<"! wynosi: "<<n;
+		cout<<"\nCzy potworzyc program? T/N: ";
+		cin>>pyt;
+	}
+	while (pyt == 'T' || pyt == 't');
+	return 0;
+}
+
+
+
+=======================
+
+
+zad 4 rekurencja:
+
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+	 unsigned long long silnia (unsigned long long sil)
+	{
+		if (sil==0) 
+		{
+			return 1;
+		}
+		else 
+		{
+			return sil*silnia(sil-1);
+		}
+	}
+int main(int argc, char** argv) 
+
+{
+	char pyt;
+	unsigned long long n;
+	cout<<"Program za pomoca rekurencji obliczy silnie podanej przez Ciebie liczby.\n";
+	do
+	{
+		cout<<"Podaj liczbe dla jakiej chcesz obliczyc silnie: ";
+		cin>>n;
+		cout<<"\n"<<n<<"!="<<silnia(n);
+		cout<<"\nCzy potworzyc program? T/N: ";
+		cin>>pyt;
+	}
+	while (pyt == 'T' || pyt == 't');
+	return 0;
+}

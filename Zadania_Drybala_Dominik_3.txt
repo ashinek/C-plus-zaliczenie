@@ -1,0 +1,332 @@
+zad_4_1
+
+#include <iostream>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+{
+	char pyt;
+	int min,max,liczba,buf;
+	do
+	{
+		cout<<"Podaj przedzial liczb jaki Cie interesuje, a nastepne liczbe, ktora chcesz sprawdzic.\n Program sprawdzi czy nalezy ona do przedzialu ktory podales";
+		cout<<"\nPodaj liczbe rozpoczynajaca przedzial jaki Cie interesuje: ";
+		cin>>min;	
+		do
+		{
+			cout<<"\nPodaj liczbe konczaca przedzial jaki Cie interesuje: ";
+			cin>>max;
+		}
+		while(max==min);
+		if (min>max)
+		{
+			buf=min;
+			min=max;
+			max=buf;
+		}
+		do
+		{
+			cout<<"\nPodaj liczbe jaka chcesz sprawdzic: ";
+			cin>>liczba;
+			if (liczba>=min)
+			{
+				if (liczba<=max)
+				{
+					cout<<"\nLiczba znajduje sie przedziale jaki podales";
+				}
+				else
+				{
+					cout<<"\nLiczba wychodzi ponad przedzial ktory podales";
+				}
+			}
+			else
+			{
+				cout<<"\nLiczba jest ponizej przedzialu jaki podales";
+			}
+			cout<<"\nCzy chcesz sprawdzic kolejna liczbe?(T/N)) ";
+			cin>>pyt;
+		}
+		while(pyt=='t' || pyt=='T');
+		cout<<"Czy chcesz podac nowy przedzial i sprawdzic nowa liczbe?(T/N) ";
+		cin>>pyt;
+	}	
+	while(pyt=='t' || pyt=='T');
+	cout<<"\nDziekuje za skorzystanie z programu";
+	return 0;
+}
+
+zad_4_2
+
+#include <iostream>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+{
+	cout<<"Program wyswietli wszystkie znaki ASCII, przypisujac je do konkretnych wartosci liczbowych:\n";
+	char ascii;
+	for (int i=0;i<256;i++)
+	{
+		ascii=i;
+		cout<<i<<" = "<<ascii<<" | ";
+		if (i>0 && i % 5 == 0)
+		{
+			cout<<endl;
+		}
+	}
+	return 0;
+}
+
+zad_4_3
+
+#include <iostream>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+{
+	char pyt;
+	int n;
+	
+	
+	do
+	{
+		srand(time(0));
+		cout<<"\nIle razy chcesz wylosowac liczby z przedzialu 0 - 100?: ";
+		cin>>n;
+		for (int i=0;i<n;i++)
+		{
+			cout<<(rand()%100)<<" ";
+		}
+		cout<<"\nCzy chcesz powtorzyc program?(T/N) ";
+		cin>>pyt;
+	}
+	while(pyt=='t' || pyt=='T');
+	return 0;
+}
+
+zad_4_3b
+
+#include <iostream>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+{
+	char pyt;
+	int n,min,max,buf;
+	
+	cout<<"program wylosuje ile chcesz liczb, z podanego przez Ciebie przedzialu";
+	do
+	{
+		cout<<"\nPodaj poczatek przedzialu ";
+		cin>>min;
+		cout<<"\nPodaj koniec przedzialu ";
+		cin>>max;
+		if (min>max)
+		{
+			buf=min;
+			min=max;
+			max=buf;
+		}
+		srand(time(0));
+		cout<<"\nIle razy chcesz wylosowac liczby z przedzialu "<<min<<" do "<<max<<" :";
+		cin>>n;
+		for (int i=0;i<n;i++)
+		{
+			cout<<(min+rand()%((max-min)+1))<<" ";
+		}
+		cout<<"\nCzy chcesz powtorzyc program?(T/N) ";
+		cin>>pyt;
+	}
+	while(pyt=='t' || pyt=='T');
+	return 0;
+}
+
+zad 4_4
+#include <iostream>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
+using namespace std;
+int jedenRzut()
+{
+	int wynik;
+	srand(time(0));
+	wynik=(1+rand()%6);
+	return wynik;
+}
+int dwaRzuty()
+{
+	int wynik;
+	srand(time(0));
+	wynik=(1+rand()%6)+(1+rand()%6);
+	return wynik;
+}
+int trzyRzuty()
+{
+	int wynik;
+	srand(time(0));
+	wynik=(1+rand()%6)+(1+rand()%6)+(1+rand()%6);
+	return wynik;
+}
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+{
+	int a,liczba,ile,licznik;
+	char pyt;
+	cout<<"Let's play the game!";
+	cout<<"\nSprobuj zgadnac liczbe, ktora wylosuje dla Ciebie za pomoca rzutu koscia";
+	do
+	{
+		cout<<"\nIloma koscmi mam rzucic? Jedna? Dwiema? Czy trzema? ";
+		cin>>ile;
+		switch(ile)
+		{
+			case 1:
+				a=jedenRzut();
+				break;
+			case 2:
+				a=dwaRzuty();
+				break;
+			case 3:
+				a=trzyRzuty();
+				break;
+		}
+		licznik=0;
+		do
+		{
+			cout<<"\nJaka liczbe wylosowalem?   ";
+			cin>>liczba;
+			licznik++;
+			if(liczba>a)
+			{
+				cout<<"\nLiczba jest za duza, podaj mniejsza";
+			}
+			if (liczba<a)
+			{
+				cout<<"\nLiczba jest zbyt mala, podaj wieksza";
+			}
+			if (liczba==a)
+			{
+				cout<<"\nZgadles brawo!!!"<<"\nProbowales: "<<licznik<<" razy";
+			}
+		}
+		while(a!=liczba);
+		cout<<"\nCzy chcesz zagrac jeszcze raz? ";
+		cin>>pyt;
+	}
+	while(pyt=='t' || pyt=='T');
+	return 0;
+}
+
+zad_4_5
+
+#include <iostream>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+{
+	int aa,ba,ca,ab,bb,cb,w,wx,wy,x,y;
+	char pyt;
+	cout<<"Program policzy za pomoca wyznacznikow rozwiazanie ukladu rownan";
+	cout<<"\nDla przypomnienia rownanie oznaczamy nastepujaco: a*x+b*y=c";
+	do
+	{
+		cout<<"\nPodaj wartosci dla pierwszego rownania:";
+		do
+		{
+			cout<<"\na1 rozne od zera: ";
+			cin>>aa;
+		}
+		while(aa==0);
+		do
+		{
+			cout<<"b1 rozne od zera: ";
+			cin>>ba;
+		}
+		while(ba==0);
+		cout<<"c1 =";
+		cin>>ca;
+		cout<<"Pierwsze rownanie ma postac: "<<aa<<"x + "<<ba<<"y = "<<ca;
+	
+		cout<<"\nPodaj wartosci dla drugiego rownania:";
+		do
+		{
+			cout<<"\na2= ";
+			cin>>ab;
+		}
+		while(ab==0);
+		do
+		{
+			cout<<"b2= ";
+			cin>>bb;
+		}
+		while(bb==0);
+		cout<<"c2 =";
+		cin>>cb;
+		cout<<"Pierwsze rownanie ma postac: "<<ab<<"x + "<<bb<<"y = "<<cb;
+	
+		cout<<"\nNa poczatku policzymy wyznaczniki:";
+		w=(aa*bb)-(ba*ab);
+		wx=(ca*bb)-(ba*cb);
+		wy=(aa*cb)-(ca*ab);
+		cout<<"\n\nW= "<<w<<" Wx= "<<wx<<" Wy= "<<wy;
+		//warunek liczenia
+		if(w>0)
+		{
+			x=wx/w;
+			y=wy/w;
+			cout<<"\n\nUklad jest oznaczony: x= "<<x<<" y= "<<y;
+		}
+		else if(wx==0 && wy==0)
+		{
+			cout<<"\n\nUklad rownan jest nieoznaczony";
+		}
+		else
+		{
+			cout<<"\n\nUklad rownan jest sprzeczny";
+		}
+		cout<<"\n\n\nCzy chcesz powtorzyc program?(T/N): ";
+		cin>>pyt;
+	}
+	while(pyt=='t' || pyt=='T');
+	
+	
+	return 0;
+}

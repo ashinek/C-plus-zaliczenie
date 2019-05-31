@@ -1,0 +1,4 @@
+Zamowiono: Herbata
+Cena: 3PLN
+Wrzucono: 5PLN
+Wydana reszta: 2PLN

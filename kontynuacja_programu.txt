@@ -1,0 +1,67 @@
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+void baner()
+{
+    cout <<" ===============================================================\n"
+         <<"|         Program liczby ujemne, zerowe i dodatnie              |\n"
+         <<"|      Program sprawdza czy wprowadzona przez uzytkownika       |\n"
+         <<"| dowolna liczba calkowita jest dodatnia, ujemna czy jest zerem |\n"
+         <<"|---------------------------------------------------------------|\n"
+         <<"|                       CDV(C)2017  student                     |\n"
+         <<" ===============================================================\n\n";
+
+}
+
+int main(int argc, char *argv[])
+{
+    
+    char znak;
+    baner();
+
+do
+{
+
+     cout << "Czy chcesz kontynuowac? [T/N] ";
+     cin >> znak;
+     cout <<endl;
+}
+    while (znak=='T' || znak=='t');         
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+=================================================================================================================================
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+void baner()
+{
+    printf (" ===============================================================\n");
+    printf ("|         Program liczby ujemne, zerowe i dodatnie              |\n");
+    printf ("|      Program sprawdza czy wprowadzona przez uzytkownika       |\n");
+    printf ("| dowolna liczba calkowita jest dodatnia, ujemna czy jest zerem |\n");
+    printf ("|---------------------------------------------------------------|\n");
+    printf ("|                        CDV(C)2017  student                    |\n");
+    printf (" ===============================================================\n\n");
+
+}
+
+int main(int argc, char *argv[])
+{
+    
+    char znak;
+    baner();
+
+do
+{
+   
+     printf ("\nCzy chcesz kontynuowac? [T/N] ");
+     znak = getch();
+     printf ("\n\n");
+}
+    while (znak=='T' || znak=='t');         
+    return 0;
+}
